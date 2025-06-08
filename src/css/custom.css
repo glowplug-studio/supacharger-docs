@@ -1,0 +1,143 @@
+ @import 'fonts.css'; 
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #A6F8BB;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    margin-top: -35vh;
+  }
+  50% {
+    margin-top: -34.5vh;
+  }
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  background-image: url('/img/header-bg.svg');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.navbar {
+  background-color: rgb(0 0 0 / 20%);
+  transition: 350ms ease-in;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  border-bottom: solid 1px rgb(255 255 255 / 7%)
+}
+
+.hero.hero--primary {
+  background-color: transparent;
+  color: #fff;
+  position: relative;
+  overflow: visible;  
+}
+
+.hero.hero--primary .container {
+  text-align: left;
+}
+
+img.supaimag-min,
+.supaimg-vapour {
+  visibility: hidden;
+}
+
+@media (min-width:600px) {
+  
+}
+
+@media (min-width: 997px) {
+
+  .hero.hero--primary .hero__title {
+    font-size: 8rem;
+  }
+
+  .hero.hero--primary .hero__subtitle {
+    position: relative;
+    z-index: 150;
+    width: 50%;
+  }
+
+  img.supaimag-min {
+    height: 650px;
+    position: relative;
+    top: -6.5vh;
+    margin-right: -8%;
+    z-index: 50;
+    float: right;
+    animation: MoveUpDown 2s ease-in infinite;
+    visibility: visible;
+  }
+
+  .supaimg-vapour {
+    position: absolute;
+    margin-left: -20%;
+    top: 20%;
+    z-index: 70;
+    width: 90%;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 1366px) {
+  img.supaimag-min {
+    top: 0vh;
+    height:800px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero.hero--primary .hero__title {
+    font-size: 11rem;
+  }
+  img.supaimag-min {
+    top: -18vh;
+  
+    margin-right: -10%;
+  }
+}
+
+@media (min-width: 1600px) {
+
+  img.supaimag-min {
+    top: -5vh;
+    height: 1100px;
+    margin-right: -27%;
+  }
+
+}
