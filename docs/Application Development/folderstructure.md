@@ -28,6 +28,15 @@ Config
 ## @/src/app/(supacharger)
 App Router files.
 
+## Plugins
+
+Where plugins go
+src/app/(supacharger)/(plugins)/[PLUGIN_NAME]
+
+Auto generated Registry
+src/app/(supacharger)/(plugins)/_registry 
+
+
 ### File Naming conventions 
 
 Guidelines:

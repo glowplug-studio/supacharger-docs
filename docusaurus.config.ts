@@ -132,7 +132,7 @@ const config: Config = {
           items: [
             {
               label: "Buy Extensons",
-              href: "https://store.supacharger.dev",
+              href: "https://license.supacharger.dev",
             },
             {
               label: "Custom SaaS MVP development",
