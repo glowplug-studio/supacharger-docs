@@ -127,16 +127,16 @@ const config: Config = {
         },
         {
           type: "dropdown",
-          label: "Extend",
+          label: "Plugins",
           position: "left",
           items: [
             {
-              label: "Buy Extensons",
-              href: "https://license.supacharger.dev",
+              label: "Get Plugins",
+              href: "https://get.supacharger.dev/source/plugins/",
             },
             {
-              label: "Custom SaaS MVP development",
-              to: "/custom-saas-development",
+              label: "Sell your plugin",
+              to: "/docs/",
             },
             // Add more items as needed
           ],

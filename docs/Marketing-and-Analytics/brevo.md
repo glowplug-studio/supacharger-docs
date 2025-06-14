@@ -10,7 +10,7 @@ sidebar_position: 1
 ### Adding a user to automations
 
 ==This is a paid module== 
-Go to Here to purchase a Lisence and get the download link  [Brevo Automations](https://license.supacharger.dev/product/brevo-marketing-email-automation/)
+Go to Here to purchase a Lisence and get the download link  [Brevo Automations](https://get.supacharger.dev/shop/source/plugins/brevo-marketing-email-automation/)
 
 Create an automation flow in Brevo.
 Send emails autoamtically to a user until they unsubscribe
