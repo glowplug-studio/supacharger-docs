@@ -61,6 +61,38 @@ git checkout main    # or the branch you track, e.g. master
 git pull origin main
 ````
 
+## Updating a plugin
+
+Probaly use the install with -f flag
+
+## Manually Removing a plugin
+
+Navigate to the project root.
+
+````bash
+cd /
+````
+Remove the plugin folder
+````bash
+rm -rf src/app/\(supacharger\)/\(plugins\)/brevo-newsletter
+````
+
+Deinitialize the submodule:
+````bash
+git submodule deinit -f src/app/\(supacharger\)/\(plugins\)/brevo-newsletter
+````
+Remove the submodule entry from the index:
+````bash
+git rm --cached src/app/\(supacharger\)/\(plugins\)/brevo-newsletter
+````
+Remove the submodule folder from .git/modules:
+````bash
+rm -rf .git/modules/src/app/\(supacharger\)/\(plugins\)/brevo-newsletter
+````
+
+You can then use Supabase studio locally to remove functions and tables and push up the changes or cloud and pull down with migrations.
+You will need to check files that are modified during install by looking in the Plugins install.js file.
+
 # Using an Plugin in your Project 
 
 ## Code

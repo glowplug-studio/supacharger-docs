@@ -60,6 +60,8 @@ supacharger dis plugin-name
 
 alias: **in**
 
+flags: -f (force - will remove git refs and files, then clone a fresh copy)
+
 Atttempts to install a plugin and activate it.
 
 - pulls source from github - may require purcahse first and github username
