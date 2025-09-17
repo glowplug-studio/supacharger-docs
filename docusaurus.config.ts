@@ -55,6 +55,10 @@ const config: Config = {
         theme: {
           customCss: "./src/css/custom.css",
         },
+        gtag: {
+          trackingID: "G-T44MSEP2WQ",
+          anonymizeIP: true,
+        },
       } satisfies Preset.Options,
     ],
   ],
@@ -86,10 +90,6 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: "img/supacharger-social-card.jpg",
-    gtag: {
-      trackingID: "G-T44MSEP2WQ",
-      anonymizeIP: true,
-    },
     colorMode: {
       defaultMode: "dark",
       disableSwitch: true,
