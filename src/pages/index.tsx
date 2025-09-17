@@ -1,13 +1,13 @@
-import React, { JSX, useEffect } from "react";
-import { handleScroll, setupScrollListener } from "@site/src/utils/scrollLogic";
-
-import Heading from "@theme/Heading";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import clsx from "clsx";
-import styles from "./index.module.css";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import { handleScroll, setupScrollListener } from "@site/src/utils/scrollLogic";
+import Heading from "@theme/Heading";
+import Layout from "@theme/Layout";
+import clsx from "clsx";
+import React, { JSX, useEffect } from "react";
+
+import styles from "./index.module.css";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
