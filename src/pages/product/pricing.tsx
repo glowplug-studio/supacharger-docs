@@ -1,11 +1,11 @@
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import { handleScroll, setupScrollListener } from '@site/src/utils/scrollLogic';
 import Heading from '@theme/Heading';
+import Layout from '@theme/Layout';
+import clsx from 'clsx';
 import React, { JSX, useEffect } from 'react';
-import { setupScrollListener, handleScroll } from '@site/src/utils/scrollLogic';
 
 import styles from './pricing.module.css';
 
