@@ -255,7 +255,7 @@ const config: Config = {
               ],
             },
           ],
-      copyright: `Copyright © ${new Date().getFullYear()} glowplug. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Glowplug Studio. Built with Docusaurus and Gemini 3.`,
     },
     prism: {
       theme: prismThemes.github,

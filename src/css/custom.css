@@ -44,12 +44,16 @@
 html,
 body {
   font-family: var(--ifm-font-family-base);
+  background-color: #090909;
 }
 
 body {
-  background-image: url('/img/header-bg.svg');
-  background-repeat: no-repeat;
-  background-position: top right;
+  background-color: #090909;
+}
+
+.footer,
+.footer--dark {
+  background-color: #090909 !important;
 }
 
 .navbar {
