@@ -67,7 +67,7 @@
   top: 6%;
   left: max(1rem, calc(50% - 650px + 1rem));
   transform: none;
-  font-size: 10vw;
+  font-size: 10.3vw;
   font-weight: 800;
   color: #fff;
   z-index: 2;
@@ -76,6 +76,12 @@
   font-family: 'Manrope', sans-serif;
   letter-spacing: -2px;
   text-align: left;
+}
+
+@media screen and (min-width: 1600px) {
+  .largeBackgroundText {
+    font-size: 10.3em;
+  }
 }
 
 .heroContainer {
@@ -186,8 +192,8 @@
 
 .quoteWrapper {
   position: absolute;
-  bottom: calc(25% + 60px);
-  left: -35%;
+  bottom: calc(25% + 130px);
+  left: -25%;
   z-index: 3;
   width: 380px;
   height: auto;
@@ -220,7 +226,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 280px;
+  height: 330px;
   z-index: 4;
   pointer-events: none;
   background: linear-gradient(to bottom, rgba(9, 9, 9, 0) 0%, #090909 45%, #090909 100%);
