@@ -242,6 +242,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .heroBanner {
+    padding-top: calc(4rem + var(--ifm-navbar-height));
+    padding-bottom: 4rem;
+  }
   .heroContainer {
     flex-direction: column;
     text-align: center;
@@ -253,24 +257,54 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 5rem;
   }
   .heroTitle {
     font-size: 2.5rem;
-    margin-top: 2.25rem;
+    margin-top: 0;
   }
   .logos {
     justify-content: center;
   }
   .largeBackgroundText {
-    top: 5%;
+    top: calc(2rem + var(--ifm-navbar-height));
     left: 50%;
     transform: translateX(-50%);
-    font-size: 14vw;
+    font-size: 16vw;
     text-align: center;
   }
+  .heroRight {
+    width: 100%;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .imageContainer {
+    padding-top: 0;
+    max-width: 100%;
+    justify-content: center;
+  }
+  .deskScene {
+    left: 0;
+    width: 100%;
+    max-width: 448px;
+    margin: 0 auto;
+  }
+  .chargerImage {
+    width: 110%;
+    max-width: 600px;
+    right: -10%;
+    left: auto;
+    top: -25%;
+  }
   .quoteWrapper {
-    bottom: 10%;
+    bottom: 38%;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
+    max-width: 380px;
+    z-index: 5;
+  }
+  .heroFadeOut {
+    height: 150px;
   }
 }

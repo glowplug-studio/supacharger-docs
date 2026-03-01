@@ -34,12 +34,10 @@ async function walkFiles(startDir) {
 
 function runSquooshCliForPngs(pngFiles) {
   if (pngFiles.length === 0) {
-    return;
+    return true;
   }
 
-  const chunkSize = 40;
-  for (let start = 0; start < pngFiles.length; start += chunkSize) {
-    const chunk = pngFiles.slice(start, start + chunkSize);
+  function runNpxForChunk(chunk, disableFetch) {
     const args = [
       "--yes",
       "@squoosh/cli",
@@ -47,18 +45,51 @@ function runSquooshCliForPngs(pngFiles) {
       `{"quality":${WEBP_QUALITY}}`,
       ...chunk,
     ];
-    const result = spawnSync("npx", args, { stdio: "inherit" });
-    if (result.error) {
-      throw new Error(
-        `Failed to run npx for WebP conversion: ${result.error.message}`,
-      );
+
+    const env = { ...process.env };
+    if (disableFetch) {
+      const existingNodeOptions = env.NODE_OPTIONS ?? "";
+      env.NODE_OPTIONS = `${existingNodeOptions} --no-experimental-fetch`.trim();
     }
-    if (result.status !== 0) {
-      throw new Error(
-        `WebP conversion failed with exit code ${result.status ?? 1}`,
+
+    return spawnSync("npx", args, { stdio: "inherit", env });
+  }
+
+  const chunkSize = 40;
+  for (let start = 0; start < pngFiles.length; start += chunkSize) {
+    const chunk = pngFiles.slice(start, start + chunkSize);
+    let result = runNpxForChunk(chunk, true);
+
+    if (result.error) {
+      console.warn(
+        `[webp] Failed to start Squoosh converter: ${result.error.message}`,
       );
+      return false;
+    }
+
+    if (result.status !== 0) {
+      console.warn(
+        `[webp] Squoosh conversion failed with fetch disabled (exit ${result.status ?? 1}). Retrying with default Node options...`,
+      );
+      result = runNpxForChunk(chunk, false);
+    }
+
+    if (result.error) {
+      console.warn(
+        `[webp] Failed to start Squoosh converter: ${result.error.message}`,
+      );
+      return false;
+    }
+
+    if (result.status !== 0) {
+      console.warn(
+        `[webp] Squoosh conversion failed for a PNG chunk (exit ${result.status ?? 1}).`,
+      );
+      return false;
     }
   }
+
+  return true;
 }
 
 function replaceAllWithCount(input, find, replacement) {
@@ -132,7 +163,11 @@ async function main() {
   }
 
   console.log(`[webp] Converting ${pngFiles.length} PNG files to WebP...`);
-  runSquooshCliForPngs(pngFiles);
+  const converted = runSquooshCliForPngs(pngFiles);
+  if (!converted) {
+    console.warn("[webp] PNG->WebP conversion skipped due to converter failure.");
+    return;
+  }
 
   const replacementMap = new Map();
   for (const pngFile of pngFiles) {
