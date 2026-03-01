@@ -6,7 +6,7 @@
  */
 
 .heroBanner {
-  padding-top: calc(6rem + var(--ifm-navbar-height));
+  padding-top: calc(2rem + var(--ifm-navbar-height));
   padding-bottom: 8rem;
   margin-top: calc(-1 * var(--ifm-navbar-height));
   text-align: left;
@@ -75,7 +75,6 @@
   flex: 1;
   max-width: 600px;
   text-align: left;
-  padding-top: 4rem; 
   position: relative;
 }
 
@@ -90,6 +89,7 @@
   text-align: left;
   line-height: 1;
   margin-bottom: 5rem;
+  letter-spacing: -0.08em;
 }
 
 .heroTitle {
@@ -146,12 +146,12 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding-top: 150px;
+  padding-top: 220px;
 }
 
 .chargerImage {
   position: absolute;
-  top: calc(-15% - 100px);
+  top: calc(-15% auto);
   right: calc(-5% - 150px);
   width: 1000px;
   z-index: 1;
@@ -180,7 +180,7 @@
 
 .quoteWrapper {
   position: absolute;
-  bottom: calc(25% + 130px);
+  bottom: calc(25% + 40px);
   left: -25%;
   z-index: 3;
   width: 380px;
@@ -205,7 +205,6 @@
   gap: 12px;
   color: #fff;
   font-family: monospace;
-  font-size: 13px;
   padding-bottom: 4px;
 }
 
@@ -277,7 +276,7 @@
 /* 2xl */
 @media screen and (max-width: 1535px) {
   .largeBackgroundText {
-    font-size: 7.5rem;
+    font-size: 10.5rem;
   }
 }
 
@@ -287,7 +286,7 @@
     padding-top: calc(4rem + var(--ifm-navbar-height));
   }
   .largeBackgroundText {
-    font-size: 6rem;
+    font-size: 8rem;
   }
   .heroContainer {
     padding: 0 1rem;
@@ -304,8 +303,8 @@
   }
   .chargerImage {
     width: 800px;
-    top: calc(-10% - 50px);
-    right: calc(-5% - 100px);
+    top: calc(5% - 50px);
+    right: calc(-5% - 0px);
   }
   .quoteWrapper {
     left: -15%;
@@ -334,6 +333,7 @@
   }
   .largeBackgroundText {
     font-size: 5rem;
+    margin-bottom: 0.5em;
   }
   .heroTitle {
     font-size: 2.8rem;
@@ -421,5 +421,9 @@
   }
   .quoteWrapper {
     bottom: 25%;
+  }
+
+  .quoteText {
+    font-size: 0.8em;
   }
 }
