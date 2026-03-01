@@ -2,6 +2,10 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
+const showDevOnlyContent =
+  process.env.NODE_ENV !== "production" ||
+  process.env.SHOW_DEV_PAGES === "true";
+
 const config: Config = {
 
   // SEO indexing
@@ -32,24 +36,36 @@ const config: Config = {
     defaultLocale: "en",
     locales: ["en"],
   },
+  customFields: {
+    showDevOnlyContent,
+  },
 
   presets: [
     [
       "classic",
       {
-        docs: {
-          sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/glowplugstudio/supacharger-docs/tree/main",
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/glowplugstudio/supacharger-docs/tree/main",
+        docs: showDevOnlyContent
+          ? {
+              sidebarPath: "./sidebars.ts",
+              // Please change this to your repo.
+              // Remove this to remove the "edit this page" links.
+              editUrl:
+                "https://github.com/glowplugstudio/supacharger-docs/tree/main",
+            }
+          : false,
+        blog: showDevOnlyContent
+          ? {
+              showReadingTime: true,
+              // Please change this to your repo.
+              // Remove this to remove the "edit this page" links.
+              editUrl:
+                "https://github.com/glowplugstudio/supacharger-docs/tree/main",
+            }
+          : false,
+        pages: {
+          include: showDevOnlyContent
+            ? ["**/*.{js,jsx,ts,tsx,md,mdx}"]
+            : ["index.{js,jsx,ts,tsx,md,mdx}"],
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -100,126 +116,146 @@ const config: Config = {
         alt: "Supacharger Logo",
         src: "img/logo.svg",
       },
-      items: [
-        {
-          type: "dropdown",
-          label: "Docs",
-          position: "left",
-          items: [
+      items: showDevOnlyContent
+        ? [
             {
-              label: "Getting Started",
-              to: "/docs/",
+              type: "dropdown",
+              label: "Docs",
+              position: "left",
+              items: [
+                {
+                  label: "Getting Started",
+                  to: "/docs/",
+                },
+                {
+                  label: "Local Setup",
+                  to: "/docs/guides/setup-wizard/",
+                },
+                {
+                  label: "Deploy",
+                  to: "/docs/guides/deploy/",
+                },
+                {
+                  label: "CLI",
+                  to: "/docs/cli/",
+                },
+                {
+                  label: "Appsmith Admin GUI",
+                  to: "/docs/",
+                },
+                // Add more items as needed
+              ],
             },
             {
-              label: "Local Setup",
-              to: "/docs/guides/setup-wizard/",
+              type: "dropdown",
+              label: "Plugins",
+              position: "left",
+              items: [
+                {
+                  label: "Get Plugins",
+                  href: "https://get.supacharger.dev/source/plugins/",
+                },
+                {
+                  label: "Sell your plugin",
+                  to: "/docs/",
+                },
+                // Add more items as needed
+              ],
             },
             {
-              label: "Deploy",
-              to: "/docs/guides/deploy/",
+              type: "dropdown",
+              label: "Product & Roadmap",
+              position: "left",
+              items: [
+                {
+                  label: "Full Features List",
+                  to: "product/features",
+                },
+                {
+                  label: "Feature Roadmap",
+                  href: "https://app.loopedin.io/supacharger",
+                },
+                {
+                  label: "Request Something",
+                  href: "https://app.loopedin.io/supacharger/ideas",
+                },
+                {
+                  label: "Paid Requests & Dev Bounty",
+                  to: "/product/feature-bounty",
+                },
+                {
+                  label: "Changelog",
+                  to: "/product/changelog",
+                },
+              ],
             },
+
+            { to: "/product/showcase", label: "Showcase", position: "left" },
             {
-              label: "CLI",
-              to: "/docs/cli/",
+              type: "dropdown",
+              label: "Support",
+              position: "left",
+              items: [
+                {
+                  label: "Discord Community",
+                  href: "https://discord.gg/anXpcd5p",
+                },
+
+                {
+                  label: "Open Issues",
+                  href: "https://github.com/glowplugstudio/supacharger/issues",
+                },
+                {
+                  label: "Contact",
+                  to: "contact",
+                },
+              ],
             },
+            { to: "/product/pricing", label: "Pricing", position: "left" },
             {
-              label: "Appsmith Admin GUI",
-              to: "/docs/",
+              href: "https://github.com/sharpi-sh/supacharger",
+              label: "GitHub",
+              position: "right",
             },
-            // Add more items as needed
+          ]
+        : [
+            {
+              href: "https://github.com/sharpi-sh/supacharger",
+              label: "GitHub",
+              position: "right",
+            },
           ],
-        },
-        {
-          type: "dropdown",
-          label: "Plugins",
-          position: "left",
-          items: [
-            {
-              label: "Get Plugins",
-              href: "https://get.supacharger.dev/source/plugins/",
-            },
-            {
-              label: "Sell your plugin",
-              to: "/docs/",
-            },
-            // Add more items as needed
-          ],
-        },
-        {
-          type: "dropdown",
-          label: "Product & Roadmap",
-          position: "left",
-          items: [
-            {
-              label: "Full Features List",
-              to: "product/features",
-            },
-            {
-              label: "Feature Roadmap",
-              href: "https://app.loopedin.io/supacharger",
-            },
-            {
-              label: "Request Something",
-              href: "https://app.loopedin.io/supacharger/ideas",
-            },
-            {
-              label: "Paid Requests & Dev Bounty",
-              to: "/product/feature-bounty",
-            },
-            {
-              label: "Changelog",
-              to: "/product/changelog",
-            },
-                 ],
-        },
-       
-        { to: "/product/showcase", label: "Showcase", position: "left" },
-        {
-          type: "dropdown",
-          label: "Support",
-          position: "left",
-          items: [
-            {
-              label: "Discord Community",
-              href: "https://discord.gg/anXpcd5p", 
-            },
-           
-            {
-              label: "Open Issues",
-              href: "https://github.com/glowplugstudio/supacharger/issues",
-            },
-            {
-              label: "Contact",
-              to: "contact",
-            },
-                 ],
-        },
-        { to: "/product/pricing", label: "Pricing", position: "left" },
-        {
-          href: "https://github.com/sharpi-sh/supacharger",
-          label: "GitHub",
-          position: "right",
-        },
-      ],
     },
     footer: {
       style: "dark",
-      links: [
-        {
-          title: "More",
-          items: [
+      links: showDevOnlyContent
+        ? [
             {
-              label: "Blog",
-              to: "/blog",
+              title: "More",
+              items: [
+                {
+                  label: "Blog",
+                  to: "/blog",
+                },
+                {
+                  label: "GitHub",
+                  href: "https://github.com/glowplugstudio/supacharger",
+                },
+              ],
             },
+          ]
+        : [
             {
-              label: "GitHub",
-              href: "https://github.com/glowplugstudio/supacharger",
+              title: "More",
+              items: [
+                {
+                  label: "GitHub",
+                  href: "https://github.com/glowplugstudio/supacharger",
+                },
+              ],
             },
           ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} glowplug. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Glowplug Studio. Built with Docusaurus and Gemini 3.`,
     },
     prism: {
       theme: prismThemes.github,
