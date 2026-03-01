@@ -6,21 +6,16 @@
  */
 
 .heroBanner {
-  padding-top: calc(8rem + var(--ifm-navbar-height)) 0 8rem;
+  padding-top: calc(6rem + var(--ifm-navbar-height));
+  padding-bottom: 8rem;
   margin-top: calc(-1 * var(--ifm-navbar-height));
-  text-align: center;
+  text-align: left;
   position: relative;
   overflow: hidden;
   background-color: #0b0b0f;
   min-height: 80vh;
   display: flex;
   align-items: center;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding:-top calc(4rem + var(--ifm-navbar-height)) 2rem 4rem;
-  }
 }
 
 .gradientCanvas {
@@ -62,28 +57,6 @@
   pointer-events: none;
 }
 
-.largeBackgroundText {
-  position: absolute;
-  top: 6%;
-  left: max(1rem, calc(50% - 650px + 1rem));
-  transform: none;
-  font-size: 10.3vw;
-  font-weight: 800;
-  color: #fff;
-  z-index: 2;
-  white-space: nowrap;
-  pointer-events: none;
-  font-family: 'Manrope', sans-serif;
-  letter-spacing: -2px;
-  text-align: left;
-}
-
-@media screen and (min-width: 1600px) {
-  .largeBackgroundText {
-    font-size: 10.3em;
-  }
-}
-
 .heroContainer {
   position: relative;
   z-index: 3;
@@ -95,18 +68,33 @@
   max-width: 1300px;
   margin: 0 auto;
   gap: 2rem;
+  margin-bottom: 12rem;
 }
 
 .heroLeft {
   flex: 1;
-  max-width: 550px;
+  max-width: 600px;
   text-align: left;
+  padding-top: 4rem; 
+  position: relative;
+}
+
+.largeBackgroundText {
+  font-size: 9.8rem;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+  font-family: 'Manrope', sans-serif;
+  letter-spacing: -2px;
+  text-align: left;
+  line-height: 1;
+  margin-bottom: 5rem;
 }
 
 .heroTitle {
   font-size: 3.2rem;
   font-weight: 500;
-  margin-top: 4.5rem;
   color: #fff;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -158,7 +146,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding-top: 150px;;
+  padding-top: 150px;
 }
 
 .chargerImage {
@@ -241,37 +229,77 @@
   color: #a0a0a0;
 }
 
-@media screen and (max-width: 1024px) {
+/* ==========================================================================
+   Tailwind Breakpoints (Desktop First Max-Widths)
+   ========================================================================== */
+
+/* 2xl */
+@media screen and (max-width: 1535px) {
+  .largeBackgroundText {
+    font-size: 7.5rem;
+  }
+}
+
+/* xl (Macbook sizes usually fall around here: 1280px-1440px) */
+@media screen and (max-width: 1279px) {
+  .heroBanner {
+    padding-top: calc(4rem + var(--ifm-navbar-height));
+  }
+  .largeBackgroundText {
+    font-size: 6rem;
+  }
+  .heroContainer {
+    padding: 0 1rem;
+  }
+  .heroLeft {
+    padding-top: 4rem;
+  }
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+  .deskScene {
+    left: -50px;
+    width: 400px;
+  }
+  .chargerImage {
+    width: 800px;
+    top: calc(-10% - 50px);
+    right: calc(-5% - 100px);
+  }
+  .quoteWrapper {
+    left: -15%;
+    bottom: calc(25% + 100px);
+  }
+}
+
+/* lg (Tablets & Mobile Transition) */
+@media screen and (max-width: 1023px) {
   .heroBanner {
     padding-top: calc(4rem + var(--ifm-navbar-height));
     padding-bottom: 4rem;
   }
   .heroContainer {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
   .heroLeft {
-    text-align: center;
+    text-align: left;
     margin-bottom: 4rem;
     max-width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 5rem;
+    align-items: flex-start;
+    padding-top: 4rem;
+  }
+  .largeBackgroundText {
+    font-size: 5rem;
   }
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-top: 0;
   }
   .logos {
-    justify-content: center;
-  }
-  .largeBackgroundText {
-    top: calc(2rem + var(--ifm-navbar-height));
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16vw;
-    text-align: center;
+    justify-content: flex-start;
   }
   .heroRight {
     width: 100%;
@@ -294,7 +322,7 @@
     max-width: 600px;
     right: -10%;
     left: auto;
-    top: -25%;
+    top: -75%;
   }
   .quoteWrapper {
     bottom: 38%;
@@ -306,5 +334,51 @@
   }
   .heroFadeOut {
     height: 150px;
+  }
+}
+
+/* md */
+@media screen and (max-width: 767px) {
+  .heroLeft {
+    padding-top: 2rem;
+  }
+  .largeBackgroundText {
+    font-size: 4rem;
+  }
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  .chargerImage {
+    width: 90%;
+    top: -50%;
+  }
+  .quoteWrapper {
+    bottom: 30%;
+  }
+}
+
+/* sm */
+@media screen and (max-width: 639px) {
+  .heroBanner {
+    padding-top: calc(2rem + var(--ifm-navbar-height));
+  }
+  .heroLeft {
+    padding-top: 2rem;
+  }
+  .largeBackgroundText {
+    font-size: 3.5rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .heroTitle {
+    font-size: 2rem;
+  }
+  .chargerImage {
+    width: 400px;
+    top: -15%;
+    right: -25%;
+  }
+  .quoteWrapper {
+    bottom: 25%;
   }
 }

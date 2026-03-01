@@ -24,10 +24,9 @@ function HomepageHeader() {
       />
       <div className={styles.gradientOverlay} aria-hidden="true" />
       <div className={styles.gridlinesBackground} aria-hidden="true" />
-      <div className={styles.largeBackgroundText}>Supacharger</div>
-
       <div className={clsx("container", styles.heroContainer)}>
         <div className={styles.heroLeft}>
+          <div className={styles.largeBackgroundText}>Supacharger</div>
           <h1 className={styles.heroTitle}>
             AI ready foundation kit for agent mode SaaS web app development.
           </h1>
