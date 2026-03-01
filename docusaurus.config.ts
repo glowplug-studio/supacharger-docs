@@ -212,15 +212,20 @@ const config: Config = {
               ],
             },
             { to: "/product/pricing", label: "Pricing", position: "left" },
+             {
+              href: "https://http://demo.supacharger.dev/",
+              label: "Demo",
+              position: "right",
+            },
             {
-              href: "https://github.com/sharpi-sh/supacharger",
+              href: "https://github.com/glowplug-studio/supacharger",
               label: "GitHub",
               position: "right",
             },
           ]
         : [
             {
-              href: "https://github.com/sharpi-sh/supacharger",
+              href: "https://github.com/glowplug-studio/supacharger",
               label: "GitHub",
               position: "right",
             },
