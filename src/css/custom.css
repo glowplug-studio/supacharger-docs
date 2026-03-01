@@ -1,4 +1,4 @@
- @import 'fonts.css'; 
+@import "fonts.css";
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -7,6 +7,8 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-family-base: "Manrope", sans-serif;
+  --ifm-heading-font-family: "Manrope", sans-serif;
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
@@ -40,12 +42,8 @@
 }
 
 html,
-body,
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Manrope", sans-serif;
+body {
+  font-family: var(--ifm-font-family-base);
 }
 
 body {

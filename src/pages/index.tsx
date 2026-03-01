@@ -11,6 +11,10 @@ import styles from "./index.module.css";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  const showDevOnlyContent = Boolean(siteConfig.customFields?.showDevOnlyContent);
+  const getStartedTo = showDevOnlyContent
+    ? "/docs/"
+    : "https://github.com/sharpi-sh/supacharger";
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
@@ -24,7 +28,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/"
+            to={getStartedTo}
           >
             Get started
           </Link>
