@@ -220,6 +220,12 @@
   background: linear-gradient(to bottom, rgba(9, 9, 9, 0) 0%, #090909 45%, #090909 100%);
 }
 
+.copyContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .copyIcon {
   cursor: pointer;
   transition: color 0.2s;
@@ -227,6 +233,41 @@
 
 .copyIcon:hover {
   color: #a0a0a0;
+}
+
+.copiedTooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: #FACC15;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.copiedTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #FACC15 transparent transparent transparent;
+}
+
+.copiedVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ==========================================================================
