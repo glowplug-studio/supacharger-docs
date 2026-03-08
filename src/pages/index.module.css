@@ -78,6 +78,45 @@
   position: relative;
 }
 
+.logoWordingImage {
+  width: auto;
+  height: auto;
+  max-width: 140px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.heroBottomGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: 640px;
+}
+
+.heroBottomLogos {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  transform: scale(0.8);
+  transform-origin: left center;
+}
+
+.logoIconImage {
+  width: auto;
+  height: auto;
+  max-width: 56px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.specdriveLink {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
 .largeBackgroundText {
   font-size: 9.8rem;
   font-weight: 800;
@@ -129,6 +168,14 @@
   color: #a0a0a0;
   max-width: 450px;
   line-height: 1.5;
+  font-family: 'Manrope', sans-serif;
+  margin: 0;
+}
+
+.reimaginedText {
+  margin: 0;
+  color: #c6c6c6;
+  font-size: 0.95rem;
   font-family: 'Manrope', sans-serif;
 }
 
@@ -342,6 +389,10 @@
   .logos {
     justify-content: flex-start;
   }
+  .heroBottomGroup {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
   .heroRight {
     width: 100%;
     justify-content: center;
@@ -383,6 +434,15 @@
   .heroLeft {
     padding-top: 2rem;
   }
+  .logoWordingImage {
+    max-width: 120px;
+  }
+  .logoIconImage {
+    max-width: 44px;
+  }
+  .heroBottomLogos {
+    transform: scale(0.72);
+  }
   .largeBackgroundText {
     font-size: 4rem;
   }
@@ -413,6 +473,15 @@
   }
   .heroTitle {
     font-size: 2rem;
+  }
+  .logoWordingImage {
+    max-width: 110px;
+  }
+  .logoIconImage {
+    max-width: 38px;
+  }
+  .heroBottomLogos {
+    transform: scale(0.65);
   }
   .chargerImage {
     width: 400px;

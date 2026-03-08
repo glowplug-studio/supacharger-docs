@@ -47,9 +47,31 @@ function HomepageHeader() {
             <img src="img/logos/tailwind-iocn.png" alt="Tailwind" />
           </div>
 
-          <p className={styles.heroBottomText}>
-            Build and iterate fast with the best standard technologies, Stripe, Next.js & Supabase.
-          </p>
+          <div className={styles.heroBottomGroup}>
+            <p className={styles.heroBottomText}>
+              Build and iterate fast with the best standard technologies, Stripe, Next.js & Supabase.
+            </p>
+            <p className={styles.reimaginedText}>Reimagined with</p>
+            <a
+              href="https://specdrive.dev"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.specdriveLink}
+            >
+              <div className={styles.heroBottomLogos}>
+                <img
+                  src="https://specdrive.dev/logoicon.svg"
+                  className={styles.logoIconImage}
+                  alt="SpecDrive logo icon"
+                />
+                <img
+                  src="https://specdrive.dev/logowording.svg"
+                  className={styles.logoWordingImage}
+                  alt="SpecDrive logo wording"
+                />
+              </div>
+            </a>
+          </div>
         </div>
 
         <div className={styles.heroRight}>
